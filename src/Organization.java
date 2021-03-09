@@ -1,5 +1,3 @@
-package sample;
-
 import java.time.LocalDateTime;
 
 public class Organization extends Contact {
