@@ -20,38 +20,16 @@ import java.util.Scanner;
 import static javafx.application.Application.launch;
 
 public class Main extends Application{
-    private Stage primaryStage;
-    private AnchorPane rootLayout;
-    private Button searchButton;
-
 
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Contacts");
-
-        initRootLayout();
+    public void start(Stage primaryStage) throws IOException {
+        primaryStage.setTitle("Contacts");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("main_view.fxml"));
+        AnchorPane rootLayout = loader.load();
+        Scene scene = new Scene(rootLayout);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
-
-    public void initRootLayout() {
-        try {
-            // Загружаем корневой макет из fxml файла.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("main_view.fxml"));
-            rootLayout = loader.load();
-
-            // Отображаем сцену, содержащую корневой макет.
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-//    public static void main(String args[]){
-//        launch(args);
-//    }
 
 }

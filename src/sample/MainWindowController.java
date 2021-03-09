@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,10 +32,6 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeContactsTableView();
-    }
-
-    private void initializeContactsTableView(){
         contactsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         nameTableColumn.prefWidthProperty().bind(contactsTableView.widthProperty().multiply(0.33));
         phoneTableColumn.prefWidthProperty().bind(contactsTableView.widthProperty().multiply(0.33));
@@ -44,6 +39,7 @@ public class MainWindowController implements Initializable {
 
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         phoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
+        emailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         updateContactsTableView();
     }
